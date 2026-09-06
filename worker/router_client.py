@@ -1,7 +1,5 @@
 import json
-import os
-
-import ntc_templates
+import ntc_templates, os
 from netmiko import ConnectHandler
 
 
@@ -26,5 +24,4 @@ def get_interfaces(ip, username, password):
 
 
 if __name__ == "__main__":
-    # Replace these with real values or load them from env/config
     get_interfaces("192.0.2.1", "admin", "password")

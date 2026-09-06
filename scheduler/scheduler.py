@@ -1,4 +1,4 @@
-import time, pika
+import time
 import os
 
 from bson import json_util
