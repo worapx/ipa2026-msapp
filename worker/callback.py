@@ -1,3 +1,4 @@
+import json
 from bson import json_util
 from router_client import get_interfaces
 from database import save_interface_status
