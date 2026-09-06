@@ -1,3 +1,4 @@
+import json
 from bson import json_util
 from router_client import get_interfaces
 from database import save_interface_status
@@ -12,6 +13,6 @@ def callback(ch, method, props, body):
     try:
         output = get_interfaces(router_ip, router_username, router_password)
         save_interface_status(router_ip, output)
-        print(json.dumps(result, indent=2))
+        print(json_util.dumps(output, indent=2))
     except Exception as e:
         print(f" Error: {e}")
