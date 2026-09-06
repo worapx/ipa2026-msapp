@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Router Detail</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #777; padding: 8px; text-align: left; }
+        th { background-color: #bbb; }
+    </style>
+</head>
+<body>
+    <h1>Router: {{ ip_address }}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Interface</th>
+                <th>IP Address</th>
+                <th>Status</th>
+                <th>Protocol</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for history in status_history %}
+                {% if history.interfaces %}
+                    {% for iface in history.interfaces %}
+                    <tr>
+                        <td>{{ history.timestamp }}</td>
+                        <td>{{ iface.interface }}</td>
+                        <td>{{ iface.ip_address }}</td>
+                        <td>{{ iface.status }}</td>
+                        <td>{{ iface.proto }}</td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Router Management</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <h1>Register Router</h1>
+
+    <form method="POST" action="/add">
+        <input name="ip_address" placeholder="Router IP (e.g. 192.168.1.1)" required />
+        <input name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Add Router</button>
+    </form>
+
+    <h2> Router List </h2>
+    <ul>
+        {% for router in routers %}
+        <li>
+            <strong>IP:</strong> <a href="/router/{{ router.ip_address }}">{{ router.ip_address }}</a> | 
+            <strong>User:</strong> {{ router.username }} 
+            
+            <form method="POST" action="{{ url_for('delete_router') }}" style="display:inline">
+                <input type="hidden" name="router_id" value="{{ router._id }}">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
