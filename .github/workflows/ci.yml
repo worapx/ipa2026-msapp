@@ -1,3 +1,4 @@
+cat ci.yml 
 name: CI Pipeline
 
 on:
@@ -42,10 +43,10 @@ jobs:
 
     - name: Build & Push Docker Images
       run: |
-        docker build -t chotipatp/worker:latest ./worker
-        docker build -t chotipatp/scheduler:latest ./scheduler
-        docker build -t chotipatp/web:latest ./web
+        docker build -t worapx/worker:latest ./worker
+        docker build -t worapx/scheduler:latest ./scheduler
+        docker build -t worapx/web:latest ./web
 
-        docker push chotipatp/worker:latest
-        docker push chotipatp/scheduler:latest
-        docker push chotipatp/web:latest
+        docker push worapx/worker:latest
+        docker push worapx/scheduler:latest
+        docker push worapx/web:latest
