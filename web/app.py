@@ -43,7 +43,7 @@ def delete_router():
 def router_detail(ip_address):
     interface_status = db["interface_status"]
     status_history = list(
-        interface_status.find({"router_ip": ip_address}).sort("timestamp", -1).limit(3)
+        interface_status.find({"router_ip": ip_address}).sort("timestamp", -1).limit(5)
     )
     return render_template(
         "router_detail.html", ip_address=ip_address, status_history=status_history
